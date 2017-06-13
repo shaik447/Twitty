@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */; };
 		384E2D3C1EEDE96A00D33D55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D3B1EEDE96A00D33D55 /* AppDelegate.swift */; };
 		384E2D431EEDE96B00D33D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384E2D421EEDE96B00D33D55 /* Assets.xcassets */; };
 		384E2D461EEDE96B00D33D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384E2D441EEDE96B00D33D55 /* LaunchScreen.storyboard */; };
 		384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D501EEDF24F00D33D55 /* HomeController.swift */; };
-		384E2D531EEDF94800D33D55 /* WorldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D521EEDF94800D33D55 /* WorldCell.swift */; };
+		384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D521EEDF94800D33D55 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		384E2D381EEDE96A00D33D55 /* Twitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		384E2D3B1EEDE96A00D33D55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		384E2D421EEDE96B00D33D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		384E2D451EEDE96B00D33D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		384E2D471EEDE96B00D33D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		384E2D501EEDF24F00D33D55 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		384E2D521EEDF94800D33D55 /* WorldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldCell.swift; sourceTree = "<group>"; };
+		384E2D521EEDF94800D33D55 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38240FD91EEF3B160074F540 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		384E2D2F1EEDE96A00D33D55 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		384E2D3A1EEDE96A00D33D55 /* Twitty */ = {
 			isa = PBXGroup;
 			children = (
+				38240FD91EEF3B160074F540 /* Helpers */,
 				384E2D4F1EEDF20A00D33D55 /* Controller */,
 				384E2D4E1EEDF20000D33D55 /* Model */,
 				384E2D4D1EEDF1F200D33D55 /* View */,
@@ -68,7 +79,7 @@
 		384E2D4D1EEDF1F200D33D55 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				384E2D521EEDF94800D33D55 /* WorldCell.swift */,
+				384E2D521EEDF94800D33D55 /* UserCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -160,7 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */,
-				384E2D531EEDF94800D33D55 /* WorldCell.swift in Sources */,
+				38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */,
+				384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */,
 				384E2D3C1EEDE96A00D33D55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +327,7 @@
 				384E2D4C1EEDE96B00D33D55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
