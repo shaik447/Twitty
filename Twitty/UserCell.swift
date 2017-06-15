@@ -8,7 +8,19 @@
 
 import UIKit
 
+let twitterColor = UIColor(red: 61/255, green: 167/255, blue: 244/255, alpha: 1)
+
 class UserCell: UICollectionViewCell {
+    
+    var user:User!{
+        didSet{
+            nameLabel.text=user.Name
+            usernameLabel.text=user.UserName
+            bioLabel.text=user.BioText
+            profileImage.image=user.ProfileImage
+        
+        }
+    }
     
     var nameLabel:UILabel={
         let uilabel=UILabel()
@@ -16,6 +28,7 @@ class UserCell: UICollectionViewCell {
         uilabel.font=UIFont.boldSystemFont(ofSize: 16)
         return uilabel
     }()
+    
     
     var profileImage:UIImageView={
         let proImage=UIImageView()
@@ -37,11 +50,12 @@ class UserCell: UICollectionViewCell {
         let biolbl=UITextView()
         biolbl.text = "This is the programming language guide and you will learn swift ios development and animations"
         biolbl.font = UIFont.systemFont(ofSize: 15)
+        biolbl.backgroundColor = .clear
         return biolbl
     }()
     
     var followUpBtn:UIButton={
-        let twitterColor = UIColor(red: 61/255, green: 167/255, blue: 244/255, alpha: 1)
+        
         var fllowBtn=UIButton()
         fllowBtn.setTitle("Follow", for: UIControlState.normal)
         fllowBtn.titleLabel?.textColor=twitterColor
@@ -58,6 +72,11 @@ class UserCell: UICollectionViewCell {
         return fllowBtn
     }()
     
+    var seperator:UIView={
+        let uiview=UIView()
+        uiview.backgroundColor = UIColor.lightGray
+        return uiview
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,6 +94,7 @@ class UserCell: UICollectionViewCell {
         addSubview(usernameLabel)
         addSubview(bioLabel)
         addSubview(followUpBtn)
+        addSubview(seperator)
         
         profileImage.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         
@@ -82,9 +102,12 @@ class UserCell: UICollectionViewCell {
         
         usernameLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: nameLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
         
-        bioLabel.anchor(usernameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: -4, leftConstant: -4, bottomConstant: 0, rightConstant: -12, widthConstant: 0, heightConstant: 0)
+        bioLabel.anchor(usernameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: -4, leftConstant: -4, bottomConstant: -3, rightConstant: -12, widthConstant: 0, heightConstant: 0)
         
-        followUpBtn.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: -12, widthConstant: 120, heightConstant: 34)
+        followUpBtn.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: -12, widthConstant: 120, heightConstant: 30)
+        
+        seperator.anchor(nil, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: -12, widthConstant: 0, heightConstant: 1.2)
+   
         
     }
 }
