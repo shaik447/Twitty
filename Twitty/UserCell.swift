@@ -51,6 +51,7 @@ class UserCell: UICollectionViewCell {
         biolbl.text = "This is the programming language guide and you will learn swift ios development and animations"
         biolbl.font = UIFont.systemFont(ofSize: 15)
         biolbl.backgroundColor = .clear
+        //biolbl.isScrollEnabled = false
         return biolbl
     }()
     
@@ -89,6 +90,8 @@ class UserCell: UICollectionViewCell {
     }
     
     func SetupViews() {
+        backgroundColor = .white
+        //layer.cornerRadius = 10
         addSubview(profileImage)
         addSubview(nameLabel)
         addSubview(usernameLabel)

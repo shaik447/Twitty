@@ -20,14 +20,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
         collectionView?.register(UserCell.self, forCellWithReuseIdentifier: "CellId")
+        collectionView?.register(TweetCell.self, forCellWithReuseIdentifier: "TweetCell")
         collectionView?.register(UserHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(UserFooter.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
+        setupNavBars()
+        collectionView?.backgroundColor = UIColor(red: 232/255, green: 236/255, blue: 242/255, alpha: 1)
         
         let flowlayout=collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         //flowlayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         flowlayout.minimumLineSpacing = 0
-        flowlayout.estimatedItemSize = CGSize(width: view.frame.width, height: 1000)
-        flowlayout.itemSize = UICollectionViewFlowLayoutAutomaticSize
+        
+        
         
         setupData()
     }
@@ -36,7 +39,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let sampleUsers=[User(Name: "shaik", UserName: "@shaik447", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "profilepic")),
                          User(Name: "Brain", UserName: "@BrianVoong", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "profile_image")),
                          User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "ray_profile_image")),
-                         User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations. This is the programming language guide where you will learn swift, ios development and smooth animations.This is the programming language guide where you will learn swift, ios development and smooth animations. This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "ray_profile_image"))
+                        User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations. This is the programming language guide where you will learn swift, ios development and smooth animations.", ProfileImage: #imageLiteral(resourceName: "ray_profile_image"))
         
         ]
         users.append(contentsOf: sampleUsers)
@@ -47,14 +50,34 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.section == 0 {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath) as? UserCell else{return UserCell()}
-        cell.user=users[indexPath.row]
-        return cell
+            cell.user=users[indexPath.row]
+            return cell
+        }
+        
+        if indexPath.section == 1{
+            guard let seccell=collectionView.dequeueReusableCell(withReuseIdentifier: "TweetCell", for: indexPath) as? TweetCell else {return TweetCell()}
+            return seccell
+        }
+        
+        return UICollectionViewCell()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 150)
+        
+        let celluser=users[indexPath.item]
+        let estimatedwidthofbiotext = view.frame.width - 50 - 12 - 12
+        let estimatedsize=CGSize(width: estimatedwidthofbiotext, height: 1000)
+        let attributes=[NSFontAttributeName : UIFont.systemFont(ofSize: 15)]
+        
+        let estimatedFrame=NSString(string: celluser.BioText).boundingRect(with: estimatedsize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+        
+        return CGSize(width: view.frame.width, height: estimatedFrame.height + 70)
     }
+    
+    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader{
@@ -69,11 +92,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if section == 1 {return .zero}
         return CGSize(width: view.frame.width, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        if section == 1 {return .zero}
+        return CGSize(width: view.frame.width, height: 70)
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
     }
     
 }

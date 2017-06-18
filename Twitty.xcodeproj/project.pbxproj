@@ -15,6 +15,8 @@
 		384E2D461EEDE96B00D33D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384E2D441EEDE96B00D33D55 /* LaunchScreen.storyboard */; };
 		384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D501EEDF24F00D33D55 /* HomeController.swift */; };
 		384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D521EEDF94800D33D55 /* UserCell.swift */; };
+		38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6D4A01EF4692D00691029 /* HomeControllerNavigationBars.swift */; };
+		38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6D4A21EF47AF300691029 /* TweetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		384E2D471EEDE96B00D33D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		384E2D501EEDF24F00D33D55 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		384E2D521EEDF94800D33D55 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		38C6D4A01EF4692D00691029 /* HomeControllerNavigationBars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeControllerNavigationBars.swift; sourceTree = "<group>"; };
+		38C6D4A21EF47AF300691029 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			children = (
 				384E2D521EEDF94800D33D55 /* UserCell.swift */,
 				383880691EF32A1C009D5C6B /* UserHeaderFooter.swift */,
+				38C6D4A01EF4692D00691029 /* HomeControllerNavigationBars.swift */,
+				38C6D4A21EF47AF300691029 /* TweetCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 				3838806A1EF32A1C009D5C6B /* UserHeaderFooter.swift in Sources */,
 				384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */,
 				3838806C1EF32AA8009D5C6B /* User.swift in Sources */,
+				38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */,
+				38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */,
 				38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */,
 				384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */,
 				384E2D3C1EEDE96A00D33D55 /* AppDelegate.swift in Sources */,
