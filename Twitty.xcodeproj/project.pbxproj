@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3823C68C1EF8656A00FA33E3 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C68B1EF8656A00FA33E3 /* Tweet.swift */; };
 		38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */; };
 		3838806A1EF32A1C009D5C6B /* UserHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383880691EF32A1C009D5C6B /* UserHeaderFooter.swift */; };
 		3838806C1EF32AA8009D5C6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838806B1EF32AA8009D5C6B /* User.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3823C68B1EF8656A00FA33E3 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
 		383880691EF32A1C009D5C6B /* UserHeaderFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHeaderFooter.swift; sourceTree = "<group>"; };
 		3838806B1EF32AA8009D5C6B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3838806B1EF32AA8009D5C6B /* User.swift */,
+				3823C68B1EF8656A00FA33E3 /* Tweet.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				3838806A1EF32A1C009D5C6B /* UserHeaderFooter.swift in Sources */,
 				384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */,
 				3838806C1EF32AA8009D5C6B /* User.swift in Sources */,
+				3823C68C1EF8656A00FA33E3 /* Tweet.swift in Sources */,
 				38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */,
 				38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */,
 				38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */,

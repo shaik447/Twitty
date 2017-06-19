@@ -10,11 +10,17 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    
     let cellid="CellId"
     let headerId="headerId"
     let footerId="footerId"
     
     var users = [User]()
+    var tweets = [Tweet]()
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +42,25 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func setupData(){
-        let sampleUsers=[User(Name: "shaik", UserName: "@shaik447", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "profilepic")),
+        let sampleUsers=[User(Name: "Shaik", UserName: "@shaik447", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "profilepic")),
                          User(Name: "Brain", UserName: "@BrianVoong", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "profile_image")),
                          User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations", ProfileImage: #imageLiteral(resourceName: "ray_profile_image")),
-                        User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations. This is the programming language guide where you will learn swift, ios development and smooth animations.", ProfileImage: #imageLiteral(resourceName: "ray_profile_image"))
+                        /* User(Name: "Ray Wanderlich", UserName: "@ray", BioText: "This is the programming language guide where you will learn swift, ios development and smooth animations. This is the programming language guide where you will learn swift, ios development and smooth animations.", ProfileImage: #imageLiteral(resourceName: "ray_profile_image")) */
         
         ]
         users.append(contentsOf: sampleUsers)
+        
+        let sampletweets = [Tweet(user: sampleUsers[0], messageText: "This is the sample tweet for the twitter clone app. I couldnt find better tweet than this so i am using the same tweet because i couldnt find a good tweet. There are many sample tweets but i liked this tweet so i am using it and i need a long string to test the sample"),Tweet(user: sampleUsers[1], messageText: "This is the sample tweet for the twitter clone app. I couldnt find better tweet than this so i am using the same tweet because i couldnt find a good tweet. There are many sample tweets but i liked this tweet so i am using it and i need a long string to test the sample")]
+        
+        tweets.append(contentsOf: sampletweets)
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 1 {
+            return tweets.count
+        }
         return users.count
     }
 
@@ -58,6 +73,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         if indexPath.section == 1{
             guard let seccell=collectionView.dequeueReusableCell(withReuseIdentifier: "TweetCell", for: indexPath) as? TweetCell else {return TweetCell()}
+            seccell.tweet = tweets[indexPath.item]
             return seccell
         }
         
@@ -66,6 +82,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if indexPath.section == 1 {
+            return CGSize(width: view.frame.width, height: 200)
+        }
         
         let celluser=users[indexPath.item]
         let estimatedwidthofbiotext = view.frame.width - 50 - 12 - 12
