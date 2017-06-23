@@ -16,9 +16,35 @@
 		384E2D461EEDE96B00D33D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384E2D441EEDE96B00D33D55 /* LaunchScreen.storyboard */; };
 		384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D501EEDF24F00D33D55 /* HomeController.swift */; };
 		384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D521EEDF94800D33D55 /* UserCell.swift */; };
+		38A932591EFBD84C002C6E4A /* TRON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932581EFBD84C002C6E4A /* TRON.framework */; };
+		38A9325A1EFBD84C002C6E4A /* TRON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932581EFBD84C002C6E4A /* TRON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38A9325E1EFBDB9F002C6E4A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9325D1EFBDB9F002C6E4A /* Service.swift */; };
+		38A932601EFBDE03002C6E4A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A9325F1EFBDE03002C6E4A /* SwiftyJSON.framework */; };
+		38A932611EFBDE03002C6E4A /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38A9325F1EFBDE03002C6E4A /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38A932631EFBDE39002C6E4A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932621EFBDE39002C6E4A /* RxSwift.framework */; };
+		38A932641EFBDE39002C6E4A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932621EFBDE39002C6E4A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38A932661EFBDE8D002C6E4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932651EFBDE8D002C6E4A /* Alamofire.framework */; };
+		38A932671EFBDE8D002C6E4A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932651EFBDE8D002C6E4A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6D4A01EF4692D00691029 /* HomeControllerNavigationBars.swift */; };
 		38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6D4A21EF47AF300691029 /* TweetCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		38A9325B1EFBD84D002C6E4A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38A932611EFBDE03002C6E4A /* SwiftyJSON.framework in Embed Frameworks */,
+				38A9325A1EFBD84C002C6E4A /* TRON.framework in Embed Frameworks */,
+				38A932641EFBDE39002C6E4A /* RxSwift.framework in Embed Frameworks */,
+				38A932671EFBDE8D002C6E4A /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3823C68B1EF8656A00FA33E3 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
@@ -32,6 +58,11 @@
 		384E2D471EEDE96B00D33D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		384E2D501EEDF24F00D33D55 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		384E2D521EEDF94800D33D55 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		38A932581EFBD84C002C6E4A /* TRON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TRON.framework; path = Carthage/Build/iOS/TRON.framework; sourceTree = "<group>"; };
+		38A9325D1EFBDB9F002C6E4A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		38A9325F1EFBDE03002C6E4A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		38A932621EFBDE39002C6E4A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		38A932651EFBDE8D002C6E4A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		38C6D4A01EF4692D00691029 /* HomeControllerNavigationBars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeControllerNavigationBars.swift; sourceTree = "<group>"; };
 		38C6D4A21EF47AF300691029 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A932601EFBDE03002C6E4A /* SwiftyJSON.framework in Frameworks */,
+				38A932591EFBD84C002C6E4A /* TRON.framework in Frameworks */,
+				38A932631EFBDE39002C6E4A /* RxSwift.framework in Frameworks */,
+				38A932661EFBDE8D002C6E4A /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +93,10 @@
 		384E2D2F1EEDE96A00D33D55 = {
 			isa = PBXGroup;
 			children = (
+				38A932651EFBDE8D002C6E4A /* Alamofire.framework */,
+				38A932621EFBDE39002C6E4A /* RxSwift.framework */,
+				38A9325F1EFBDE03002C6E4A /* SwiftyJSON.framework */,
+				38A932581EFBD84C002C6E4A /* TRON.framework */,
 				384E2D3A1EEDE96A00D33D55 /* Twitty */,
 				384E2D391EEDE96A00D33D55 /* Products */,
 			);
@@ -74,6 +113,7 @@
 		384E2D3A1EEDE96A00D33D55 /* Twitty */ = {
 			isa = PBXGroup;
 			children = (
+				38A9325C1EFBDB79002C6E4A /* Service */,
 				38240FD91EEF3B160074F540 /* Helpers */,
 				384E2D4F1EEDF20A00D33D55 /* Controller */,
 				384E2D4E1EEDF20000D33D55 /* Model */,
@@ -114,6 +154,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		38A9325C1EFBDB79002C6E4A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				38A9325D1EFBDB9F002C6E4A /* Service.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,6 +172,7 @@
 				384E2D341EEDE96A00D33D55 /* Sources */,
 				384E2D351EEDE96A00D33D55 /* Frameworks */,
 				384E2D361EEDE96A00D33D55 /* Resources */,
+				38A9325B1EFBD84D002C6E4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +241,7 @@
 				38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */,
 				38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */,
 				38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */,
+				38A9325E1EFBDB9F002C6E4A /* Service.swift in Sources */,
 				384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */,
 				384E2D3C1EEDE96A00D33D55 /* AppDelegate.swift in Sources */,
 			);
@@ -308,6 +358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Twitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shaik.Twitty;
@@ -320,6 +374,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Twitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shaik.Twitty;

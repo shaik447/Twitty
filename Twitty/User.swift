@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import TRON
+import SwiftyJSON
 
-struct User {
+struct User{
     var Name:String!
     var UserName:String!
     var BioText:String!
     var ProfileImage:UIImage!
+    
+    init(json : JSON) {
+        self.Name = json["name"].stringValue
+        self.UserName = json["username"].stringValue
+        self.BioText = json["bio"].stringValue
+        self.ProfileImage = #imageLiteral(resourceName: "profilepic")
+    }
 }
