@@ -20,6 +20,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var users:[User]?
     var tweets = [Tweet]()
     
+    var errorMessage : UILabel = {
+        let label = UILabel()
+        label.text = "Apologies something went wrong..Please try again later"
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionViewLayout.invalidateLayout()
     }
@@ -27,9 +36,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        Service.sharedInstance.fetchHomefeed { (homefeed) in
-            self.users = homefeed.users
-            self.tweets = homefeed.tweets
+        setupToolbar()
+        self.view.addSubview(self.errorMessage)
+        self.errorMessage.fillSuperview()
+
+        Service.sharedInstance.fetchHomefeed { (homefeed,err) in
+            if let _ = err{
+                self.errorMessage.isHidden = false
+                return
+            }
+            
+            self.users = homefeed?.users
+            self.tweets = (homefeed?.tweets)!
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 
@@ -49,6 +67,22 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let flowlayout=collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         //flowlayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         flowlayout.minimumLineSpacing = 0
+        
+    }
+    
+    fileprivate func setupToolbar(){
+        navigationController?.isToolbarHidden = false
+        navigationController?.toolbar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.toolbar.isTranslucent = false
+        //navigationController?.toolbar.tintColor = .blue
+        
+        let homeBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Home").withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let notificationsBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Notifications").withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let MessagesBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Messages").withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let ProfileBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Me").withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        setToolbarItems([homeBarButtonItem,flexibleSpace,notificationsBarButtonItem,flexibleSpace,MessagesBarButtonItem,flexibleSpace,ProfileBarButtonItem], animated: true)
         
     }
     
@@ -75,7 +109,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         if section == 1 {
             return tweets.count
         }
-        print(users?.count ?? 456)
         return users?.count ?? 0
     }
 
@@ -98,18 +131,27 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath.section == 1 {
-            return CGSize(width: view.frame.width, height: 200)
+        if indexPath.section == 0 {
+            let celluser=users?[indexPath.item]
+            let estimatedheight = getTextHeight(text: (celluser?.BioText)!)
+           return CGSize(width: view.frame.width, height: estimatedheight + 70 )
         }
         
-        let celluser=users?[indexPath.item]
-        let estimatedwidthofbiotext = view.frame.width - 50 - 12 - 12
-        let estimatedsize=CGSize(width: estimatedwidthofbiotext, height: 1000)
+        if indexPath.section == 1 {
+            let tweet = tweets[indexPath.item]
+            let estimatedHeight = getTextHeight(text: tweet.messageText)
+            return CGSize(width: view.frame.width, height: estimatedHeight + 74)
+        }
+        
+        return .zero
+    }
+    
+    func getTextHeight(text:String) -> CGFloat {
+        let estimatedwidthtext = view.frame.width - 50 - 12 - 12
+        let estimatedsize=CGSize(width: estimatedwidthtext, height: 1000)
         let attributes=[NSFontAttributeName : UIFont.systemFont(ofSize: 15)]
-        
-        let estimatedFrame=NSString(string: celluser!.BioText).boundingRect(with: estimatedsize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
-        
-        return CGSize(width: view.frame.width, height: estimatedFrame.height + 70)
+        let estimatedFrame=NSString(string: text).boundingRect(with: estimatedsize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return estimatedFrame.height
     }
     
     

@@ -15,11 +15,13 @@ struct User{
     var UserName:String!
     var BioText:String!
     var ProfileImage:UIImage!
+    var ProfileImgUrl:String!
     
     init(json : JSON) {
         self.Name = json["name"].stringValue
         self.UserName = json["username"].stringValue
         self.BioText = json["bio"].stringValue
         self.ProfileImage = #imageLiteral(resourceName: "profilepic")
+        self.ProfileImgUrl = json["profileImageUrl"].stringValue
     }
 }

@@ -16,6 +16,7 @@
 		384E2D461EEDE96B00D33D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384E2D441EEDE96B00D33D55 /* LaunchScreen.storyboard */; };
 		384E2D511EEDF24F00D33D55 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D501EEDF24F00D33D55 /* HomeController.swift */; };
 		384E2D531EEDF94800D33D55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E2D521EEDF94800D33D55 /* UserCell.swift */; };
+		388ABD541EFE9F4000927EA5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388ABD531EFE9F4000927EA5 /* ImageLoader.swift */; };
 		38A932591EFBD84C002C6E4A /* TRON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932581EFBD84C002C6E4A /* TRON.framework */; };
 		38A9325A1EFBD84C002C6E4A /* TRON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38A932581EFBD84C002C6E4A /* TRON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38A9325E1EFBDB9F002C6E4A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9325D1EFBDB9F002C6E4A /* Service.swift */; };
@@ -58,6 +59,7 @@
 		384E2D471EEDE96B00D33D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		384E2D501EEDF24F00D33D55 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		384E2D521EEDF94800D33D55 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		388ABD531EFE9F4000927EA5 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		38A932581EFBD84C002C6E4A /* TRON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TRON.framework; path = Carthage/Build/iOS/TRON.framework; sourceTree = "<group>"; };
 		38A9325D1EFBDB9F002C6E4A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		38A9325F1EFBDE03002C6E4A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				38240FDA1EEF3B360074F540 /* UIView+Anchors.swift */,
+				388ABD531EFE9F4000927EA5 /* ImageLoader.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				3838806C1EF32AA8009D5C6B /* User.swift in Sources */,
 				3823C68C1EF8656A00FA33E3 /* Tweet.swift in Sources */,
 				38C6D4A31EF47AF300691029 /* TweetCell.swift in Sources */,
+				388ABD541EFE9F4000927EA5 /* ImageLoader.swift in Sources */,
 				38C6D4A11EF4692D00691029 /* HomeControllerNavigationBars.swift in Sources */,
 				38240FDB1EEF3B360074F540 /* UIView+Anchors.swift in Sources */,
 				38A9325E1EFBDB9F002C6E4A /* Service.swift in Sources */,

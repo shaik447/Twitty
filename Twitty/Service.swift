@@ -16,13 +16,28 @@ struct Service {
     
     let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
     
-    func fetchHomefeed(completion: @escaping (HomeFeed) -> ()){
-        let request: APIRequest<HomeFeed,JsonError> = tron.request("/twitter/home2")
+    func fetchHomefeed(completion: @escaping (HomeFeed?,Error?) -> ()){
+        let request: APIRequest<HomeFeed,JsonError> = tron.request("/twitter/home")
         request.perform(withSuccess: { (homefeed) in
-            completion(homefeed)
-            
+            completion(homefeed,nil)
         }) { (err) in
-            print("error printed")
+            completion(nil,err)
+        }
+    }
+    
+    func dowloadImage(imageUrl:String,completion: @escaping (UIImage) -> ()) {
+        if let url = URL(string: imageUrl){
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                if let err=err {
+                    print(err)
+                    return
+                }
+                
+                if let datax=data{
+                    let profileimg = UIImage(data: datax)
+                    completion(profileimg!)
+                }
+            }.resume()
         }
     }
 }
@@ -48,6 +63,12 @@ class HomeFeed: JSONDecodable{
 class JsonError: JSONDecodable{
     required init(json: JSON) throws {
         print("The returned error is \(json)")
+    }
+}
+
+class RemoteImage: JSONDecodable {
+    required init(json: JSON) throws {
+        print("image json",json)
     }
 }
 

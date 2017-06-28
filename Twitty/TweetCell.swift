@@ -13,14 +13,16 @@ class TweetCell : UICollectionViewCell{
     var tweet:Tweet!{
         
         didSet{
-            profileImage.image = tweet.user.ProfileImage
+            Service.sharedInstance.dowloadImage(imageUrl: tweet.user.ProfileImgUrl) { (remoteimg) in
+                DispatchQueue.main.async {
+                    self.profileImage.image=remoteimg
+                }
+            }
             let attributedText = NSMutableAttributedString(string: tweet.user.Name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16)])
             attributedText.append(NSAttributedString(string: "  \(tweet.user.UserName!) \n", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14) , NSForegroundColorAttributeName : UIColor.gray]))
             
             attributedText.append(NSAttributedString(string: tweet.messageText, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 15)]))
             messageText.attributedText = attributedText
-            
-        
         }
         
     }

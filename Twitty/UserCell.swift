@@ -17,7 +17,12 @@ class UserCell: UICollectionViewCell {
             nameLabel.text=user.Name
             usernameLabel.text=user.UserName
             bioLabel.text=user.BioText
-            profileImage.image=user.ProfileImage
+            Service.sharedInstance.dowloadImage(imageUrl: user.ProfileImgUrl) { remoteimage in
+                DispatchQueue.main.async {
+                    self.profileImage.image = remoteimage
+                }
+                
+            }
         
         }
     }
@@ -113,4 +118,6 @@ class UserCell: UICollectionViewCell {
    
         
     }
+    
+    
 }
